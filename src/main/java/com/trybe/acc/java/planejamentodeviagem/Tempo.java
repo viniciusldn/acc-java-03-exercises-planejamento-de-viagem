@@ -49,7 +49,7 @@ public class Tempo {
    * nosso destino, uma vez com esse fuso horario, podemos recuperar o horario
    * local de desembarque no nosso destino
    * </p>
-   * 
+   *
    * @return the string
    */
   public String retonarDesembarqueHorarioLocalDestino() {
@@ -60,7 +60,7 @@ public class Tempo {
     int indiceFusoHorarioOrigem = 0;
 
     for (int i = 0; i < fusosHorarios.length; i++) {
-      if (fusosHorarios[i].contains(origem)) {
+      if (fusosHorarios[i].contains(this.origem)) {
         indiceFusoHorarioOrigem = i;
       }
     }
@@ -73,8 +73,8 @@ public class Tempo {
     int indiceFusoHorarioDestino = 0;
 
     for (int i = 0; i < fusosHorarios.length; i++) {
-      if (fusosHorarios[i].contains(destino)) {
-        indiceFusoHorarioOrigem = i;
+      if (fusosHorarios[i].contains(this.destino)) {
+        indiceFusoHorarioDestino = i;
       }
     }
 

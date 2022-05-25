@@ -54,8 +54,8 @@ public class Viagem {
    */
   // aqui consideramos que um aviao percorre em media 700 km a cada hora.
   public int retornarDuracaoVoo() {
-    Voo duracaoVoo = new Voo();
-    return duracaoVoo.retornarTempoVoo(distanciaKm);
+    Voo tempoVoo = new Voo();
+    return tempoVoo.retornarTempoVoo(distanciaKm);
   }
 
   /**
@@ -66,8 +66,12 @@ public class Viagem {
   public String retornarInformacaoViagem() {
     Tempo tempoViagem = new Tempo(this.embarque, this.origem, this.destino,
         this.retornarDuracaoVoo());
-
-    return this.embarque + " - " + this.origem + "\n" + this.retonarDesembarqueHorarioLocalDestino()
-        + " - " + this.destino;
+    Voo tempoVoo = new Voo();
+    return tempoVoo.retornarInformacaoVoo(this.embarque, this.origem,
+        tempoViagem.retonarDesembarqueHorarioLocalDestino(), this.destino)
+        + "Atenção: o desembarque em " + this.destino + " será: "
+        + tempoViagem.retonarDesembarqueHorarioLocalDestino() + " no horário de " + this.destino
+        + " e " + tempoViagem.retonarDesembarqueHorarioLocalOrigem() + " no horário de "
+        + this.origem;
   }
 }
