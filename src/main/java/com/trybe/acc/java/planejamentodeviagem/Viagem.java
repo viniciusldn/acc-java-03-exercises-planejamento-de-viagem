@@ -1,10 +1,24 @@
 package com.trybe.acc.java.planejamentodeviagem;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Viagem.
+ */
 public class Viagem {
+  
+  /** The embarque. */
   private String embarque;
+  
+  /** The origem. */
   private String origem;
+  
+  /** The destino. */
   private String destino;
+  
+  /** The distancia km. */
   private double distanciaKm;
+  
+  /** The voo. */
   private Voo voo;
 
   /**
@@ -17,7 +31,8 @@ public class Viagem {
 
   /**
    * Método para retorno do horário de Desembarque no Destino.
-   * 
+   *
+   * @return the string
    */
   public String retonarDesembarqueHorarioLocalDestino() {
     Tempo tempoViagem =
@@ -25,6 +40,11 @@ public class Viagem {
     return tempoViagem.retonarDesembarqueHorarioLocalDestino();
   }
 
+  /**
+   * Retornar duracao voo.
+   *
+   * @return the int
+   */
   // aqui consideramos que um aviao percorre em media 700 km a cada hora
   public int retornarDuracaoVoo() {
       /* Implemente sua solução aqui */
@@ -32,7 +52,8 @@ public class Viagem {
 
   /**
    * Método para retorno da informaçao da viagem.
-   * 
+   *
+   * @return the string
    */
   public String retornarInformacaoViagem() {
     Tempo tempoViagem =
