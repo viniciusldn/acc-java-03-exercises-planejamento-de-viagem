@@ -10,16 +10,16 @@ import java.time.format.DateTimeFormatter;
  * The Class Tempo.
  */
 public class Tempo {
-  
+
   /** The embarque. */
   private LocalDateTime embarque;
-  
+
   /** The origem. */
   private String origem;
-  
+
   /** The destino. */
   private String destino;
-  
+
   /** The duracao. */
   private int duracao;
 
@@ -30,9 +30,9 @@ public class Tempo {
    * Método construtor da classe.
    *
    * @param embarque the embarque
-   * @param origem the origem
-   * @param destino the destino
-   * @param duracao the duracao
+   * @param origem   the origem
+   * @param destino  the destino
+   * @param duracao  the duracao
    */
   public Tempo(String embarque, String origem, String destino, int duracao) {
     this.embarque = LocalDateTime.parse(embarque, DateTimeFormatter.ofPattern(formato));
@@ -43,10 +43,11 @@ public class Tempo {
 
   /**
    * retonarDesembarqueHorarioLocalDestino.
-   * 
-   * Transforma todos os fusos horarios disponíveis na classe ZoneId em um array de Strings, onde
-   * nos percorremos em busca do identificador do fuso horario do nosso destino, uma vez com esse
-   * fuso horario, podemos recuperar o horario local de desembarque no nosso destino
+   *
+   * Transforma todos os fusos horarios disponíveis na classe ZoneId em um array
+   * de Strings, onde nos percorremos em busca do identificador do fuso horario do
+   * nosso destino, uma vez com esse fuso horario, podemos recuperar o horario
+   * local de desembarque no nosso destino
    *
    * @return the string
    */
@@ -58,7 +59,8 @@ public class Tempo {
     int indiceFusoHorarioOrigem = 0;
 
     for (int i = 0; i < fusosHorarios.length; i++) {
-      /* Implemente sua solução aqui */
+      if (fusosHorarios[i].contains(origem))
+        indiceFusoHorarioOrigem = i;
     }
 
     String fusoHorarioOrigem = fusosHorarios[indiceFusoHorarioOrigem];
@@ -66,16 +68,16 @@ public class Tempo {
 
     ZonedDateTime origemHorarioLocal = this.embarque.atZone(fusoHorarioIdOrigem);
 
-
     int indiceFusoHorarioDestino = 0;
 
     for (int i = 0; i < fusosHorarios.length; i++) {
-      /* Implemente sua solução aqui */
+      if (fusosHorarios[i].contains(destino))
+        indiceFusoHorarioOrigem = i;
     }
 
     String fusoHorarioDestino = fusosHorarios[indiceFusoHorarioDestino];
-    ZonedDateTime destinoHorarioLocal =
-        origemHorarioLocal.withZoneSameInstant(ZoneId.of(fusoHorarioDestino));
+    ZonedDateTime destinoHorarioLocal = origemHorarioLocal
+        .withZoneSameInstant(ZoneId.of(fusoHorarioDestino));
 
     return destinoHorarioLocal.plusHours(this.duracao).format(DateTimeFormatter.ofPattern(formato));
   }
@@ -92,7 +94,8 @@ public class Tempo {
     int indiceFusoHorarioOrigem = 0;
 
     for (int i = 0; i < fusosHorarios.length; i++) {
-      /* Implemente sua solução aqui */
+      if (fusosHorarios[i].contains(origem))
+        indiceFusoHorarioOrigem = i;
     }
 
     String fusoHorarioOrigem = fusosHorarios[indiceFusoHorarioOrigem];
